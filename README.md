@@ -11,3 +11,5 @@ Give your agent [SKILL.md](SKILL.md) and the local paths to a copy of the materi
 - [Synthetic reporting exercise](synthetic-case.md) and its [example audit](example-audit.json).
 
 This first version is an instructions-and-templates package. It is not a standalone scanner, live penetration testing system, certification, or evidence that a particular deployment is safe.
+
+See [related skill patterns](skill-references.md) for optional references behind the audit design.
