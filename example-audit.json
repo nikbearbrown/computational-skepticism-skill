@@ -34,7 +34,9 @@
       "status": "contradicted",
       "severity": "moderate",
       "next_owner": "caption editor",
-      "next_step": "Correct rate and show counts."
+      "next_step": "Correct rate and show counts.",
+      "trace": "ch03, ch10",
+      "acceptance_check": "An authorized reviewer reproduces 24/30 = 80% and matches the corrected caption to the table."
     },
     {
       "id": "C02",
@@ -47,7 +49,9 @@
       "status": "unresolved",
       "severity": "moderate",
       "next_owner": "caption editor",
-      "next_step": "Remove claim; preserve suppression."
+      "next_step": "Remove claim; preserve suppression.",
+      "trace": "ch03, ch11",
+      "acceptance_check": "The corrected caption marks the Hill count suppressed and does not state or imply a count."
     },
     {
       "id": "C03",
@@ -60,7 +64,9 @@
       "status": "unresolved",
       "severity": "low",
       "next_owner": "caption editor",
-      "next_step": "Remove log assertion or supply approved source."
+      "next_step": "Remove log assertion or supply approved source.",
+      "trace": "ch01, ch11",
+      "acceptance_check": "Caption drops the log attribution or cites a supplied log that an authorized reviewer checks independently."
     }
   ],
   "coverage_gaps": [
@@ -69,5 +75,67 @@
   ],
   "review_conditions": [
     "A human reviewer independently checks the modified caption before release."
-  ]
+  ],
+  "coverage": {
+    "intro-a": {
+      "disposition": "not_applicable",
+      "reason": "No agent permissions or trace are part of the caption review."
+    },
+    "intro-b": {
+      "disposition": "not_applicable",
+      "reason": "The packet contains no agent loop."
+    },
+    "ch01": {
+      "disposition": "checked",
+      "reason": "Claims C01–C03 were separated and compared with the available evidence."
+    },
+    "ch02": {
+      "disposition": "checked",
+      "reason": "C01 recomputes the descriptive rate without inferring a population estimate."
+    },
+    "ch03": {
+      "disposition": "checked",
+      "reason": "E1 provides the eligible denominator; E2 marks its denominator suppressed."
+    },
+    "ch04": {
+      "disposition": "not_assessed",
+      "reason": "No comparable cases or versions supplied; obtain a second approved fixture if needed."
+    },
+    "ch05": {
+      "disposition": "not_applicable",
+      "reason": "The caption makes no claim about why a model produced its result."
+    },
+    "ch06": {
+      "disposition": "not_assessed",
+      "reason": "No information about population selection or subgroup coverage; request approved aggregate evidence for any further comparison."
+    },
+    "ch07": {
+      "disposition": "not_assessed",
+      "reason": "No fairness definition or sufficient group counts; agree a definition and obtain eligible aggregates before comparing."
+    },
+    "ch08": {
+      "disposition": "not_applicable",
+      "reason": "No agent action or state transition is part of the review."
+    },
+    "ch09": {
+      "disposition": "not_applicable",
+      "reason": "No system delegation authority is being evaluated."
+    },
+    "ch10": {
+      "disposition": "checked",
+      "reason": "The table-to-caption mapping was inspected for rate, date and suppression."
+    },
+    "ch11": {
+      "disposition": "checked",
+      "reason": "C02 and C03 flag wording stronger than the evidence supports."
+    },
+    "ch12": {
+      "disposition": "checked",
+      "reason": "An accountable reviewer and a before-release review gate are specified; no sign-off occurred."
+    },
+    "ch13": {
+      "disposition": "checked",
+      "reason": "Scope excludes conclusions about actual performance, group differences and the missing operational log."
+    }
+  }
 }

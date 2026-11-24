@@ -13,7 +13,8 @@
     "evidence",
     "findings",
     "coverage_gaps",
-    "review_conditions"
+    "review_conditions",
+    "coverage"
   ],
   "properties": {
     "audit_id": {
@@ -140,8 +141,42 @@
           "next_step": {
             "type": "string",
             "minLength": 1
+          },
+          "trace": {
+            "type": "string",
+            "minLength": 1
+          },
+          "acceptance_check": {
+            "type": "string",
+            "minLength": 1
           }
-        }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "severity": {
+                  "enum": [
+                    "moderate",
+                    "high"
+                  ]
+                },
+                "status": {
+                  "enum": [
+                    "unresolved",
+                    "contradicted"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "trace",
+                "acceptance_check"
+              ]
+            }
+          }
+        ]
       }
     },
     "coverage_gaps": {
@@ -157,6 +192,344 @@
         "type": "string",
         "minLength": 1
       }
+    },
+    "coverage": {
+      "type": "object",
+      "properties": {
+        "intro-a": {
+          "type": "object",
+          "properties": {
+            "disposition": {
+              "enum": [
+                "checked",
+                "not_assessed",
+                "not_applicable"
+              ]
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "disposition",
+            "reason"
+          ],
+          "additionalProperties": false
+        },
+        "intro-b": {
+          "type": "object",
+          "properties": {
+            "disposition": {
+              "enum": [
+                "checked",
+                "not_assessed",
+                "not_applicable"
+              ]
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "disposition",
+            "reason"
+          ],
+          "additionalProperties": false
+        },
+        "ch01": {
+          "type": "object",
+          "properties": {
+            "disposition": {
+              "enum": [
+                "checked",
+                "not_assessed",
+                "not_applicable"
+              ]
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "disposition",
+            "reason"
+          ],
+          "additionalProperties": false
+        },
+        "ch02": {
+          "type": "object",
+          "properties": {
+            "disposition": {
+              "enum": [
+                "checked",
+                "not_assessed",
+                "not_applicable"
+              ]
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "disposition",
+            "reason"
+          ],
+          "additionalProperties": false
+        },
+        "ch03": {
+          "type": "object",
+          "properties": {
+            "disposition": {
+              "enum": [
+                "checked",
+                "not_assessed",
+                "not_applicable"
+              ]
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "disposition",
+            "reason"
+          ],
+          "additionalProperties": false
+        },
+        "ch04": {
+          "type": "object",
+          "properties": {
+            "disposition": {
+              "enum": [
+                "checked",
+                "not_assessed",
+                "not_applicable"
+              ]
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "disposition",
+            "reason"
+          ],
+          "additionalProperties": false
+        },
+        "ch05": {
+          "type": "object",
+          "properties": {
+            "disposition": {
+              "enum": [
+                "checked",
+                "not_assessed",
+                "not_applicable"
+              ]
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "disposition",
+            "reason"
+          ],
+          "additionalProperties": false
+        },
+        "ch06": {
+          "type": "object",
+          "properties": {
+            "disposition": {
+              "enum": [
+                "checked",
+                "not_assessed",
+                "not_applicable"
+              ]
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "disposition",
+            "reason"
+          ],
+          "additionalProperties": false
+        },
+        "ch07": {
+          "type": "object",
+          "properties": {
+            "disposition": {
+              "enum": [
+                "checked",
+                "not_assessed",
+                "not_applicable"
+              ]
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "disposition",
+            "reason"
+          ],
+          "additionalProperties": false
+        },
+        "ch08": {
+          "type": "object",
+          "properties": {
+            "disposition": {
+              "enum": [
+                "checked",
+                "not_assessed",
+                "not_applicable"
+              ]
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "disposition",
+            "reason"
+          ],
+          "additionalProperties": false
+        },
+        "ch09": {
+          "type": "object",
+          "properties": {
+            "disposition": {
+              "enum": [
+                "checked",
+                "not_assessed",
+                "not_applicable"
+              ]
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "disposition",
+            "reason"
+          ],
+          "additionalProperties": false
+        },
+        "ch10": {
+          "type": "object",
+          "properties": {
+            "disposition": {
+              "enum": [
+                "checked",
+                "not_assessed",
+                "not_applicable"
+              ]
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "disposition",
+            "reason"
+          ],
+          "additionalProperties": false
+        },
+        "ch11": {
+          "type": "object",
+          "properties": {
+            "disposition": {
+              "enum": [
+                "checked",
+                "not_assessed",
+                "not_applicable"
+              ]
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "disposition",
+            "reason"
+          ],
+          "additionalProperties": false
+        },
+        "ch12": {
+          "type": "object",
+          "properties": {
+            "disposition": {
+              "enum": [
+                "checked",
+                "not_assessed",
+                "not_applicable"
+              ]
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "disposition",
+            "reason"
+          ],
+          "additionalProperties": false
+        },
+        "ch13": {
+          "type": "object",
+          "properties": {
+            "disposition": {
+              "enum": [
+                "checked",
+                "not_assessed",
+                "not_applicable"
+              ]
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "disposition",
+            "reason"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "intro-a",
+        "intro-b",
+        "ch01",
+        "ch02",
+        "ch03",
+        "ch04",
+        "ch05",
+        "ch06",
+        "ch07",
+        "ch08",
+        "ch09",
+        "ch10",
+        "ch11",
+        "ch12",
+        "ch13"
+      ],
+      "additionalProperties": false
     }
   }
 }
