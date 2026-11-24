@@ -1,0 +1,73 @@
+{
+  "audit_id": "synthetic-caption-01",
+  "scope": "Offline review of an invented administrative caption",
+  "artifact_version": "caption v1",
+  "decision_owner": "synthetic staff reviewer",
+  "recommendation": "hold",
+  "human_decision": "pending",
+  "evidence": [
+    {
+      "id": "E1",
+      "locator": "synthetic-case.md, Harbor table row",
+      "grounding": "supplied_unverified"
+    },
+    {
+      "id": "E2",
+      "locator": "synthetic-case.md, Hill table row",
+      "grounding": "supplied_unverified"
+    },
+    {
+      "id": "E3",
+      "locator": "Operational log not supplied",
+      "grounding": "absent"
+    }
+  ],
+  "findings": [
+    {
+      "id": "C01",
+      "claim": "Harbor resolved 24% on time.",
+      "method": "Divide supplied numerator by eligible denominator.",
+      "result": "24/30 = 80%.",
+      "evidence_ids": [
+        "E1"
+      ],
+      "status": "contradicted",
+      "severity": "moderate",
+      "next_owner": "caption editor",
+      "next_step": "Correct rate and show counts."
+    },
+    {
+      "id": "C02",
+      "claim": "Hill received zero eligible requests.",
+      "method": "Inspect denominator field.",
+      "result": "Suppressed; value unknown from packet.",
+      "evidence_ids": [
+        "E2"
+      ],
+      "status": "unresolved",
+      "severity": "moderate",
+      "next_owner": "caption editor",
+      "next_step": "Remove claim; preserve suppression."
+    },
+    {
+      "id": "C03",
+      "claim": "Harbor’s operational log supports the October period.",
+      "method": "Locate independent operational log.",
+      "result": "No log supplied.",
+      "evidence_ids": [
+        "E3"
+      ],
+      "status": "unresolved",
+      "severity": "low",
+      "next_owner": "caption editor",
+      "next_step": "Remove log assertion or supply approved source."
+    }
+  ],
+  "coverage_gaps": [
+    "No operational log or group-level evidence supplied.",
+    "No model or agent traces in scope; no deployment tested."
+  ],
+  "review_conditions": [
+    "A human reviewer independently checks the modified caption before release."
+  ]
+}

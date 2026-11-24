@@ -1,0 +1,162 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Computational Skepticism evidence ledger",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "audit_id",
+    "scope",
+    "artifact_version",
+    "decision_owner",
+    "recommendation",
+    "human_decision",
+    "evidence",
+    "findings",
+    "coverage_gaps",
+    "review_conditions"
+  ],
+  "properties": {
+    "audit_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scope": {
+      "type": "string",
+      "minLength": 1
+    },
+    "artifact_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "decision_owner": {
+      "type": "string",
+      "minLength": 1
+    },
+    "recommendation": {
+      "enum": [
+        "hold",
+        "escalate",
+        "restricted_pilot",
+        "ready_for_human_review"
+      ]
+    },
+    "human_decision": {
+      "enum": [
+        "pending",
+        "hold",
+        "escalate",
+        "restricted_pilot",
+        "approved_by_authorized_human"
+      ]
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "locator",
+          "grounding"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "locator": {
+            "type": "string",
+            "minLength": 1
+          },
+          "grounding": {
+            "enum": [
+              "independently_observed",
+              "supplied_unverified",
+              "absent"
+            ]
+          }
+        }
+      }
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "claim",
+          "method",
+          "result",
+          "evidence_ids",
+          "status",
+          "severity",
+          "next_owner",
+          "next_step"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "claim": {
+            "type": "string",
+            "minLength": 1
+          },
+          "method": {
+            "type": "string",
+            "minLength": 1
+          },
+          "result": {
+            "type": "string",
+            "minLength": 1
+          },
+          "evidence_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "status": {
+            "enum": [
+              "supported",
+              "contradicted",
+              "unresolved",
+              "not_applicable"
+            ]
+          },
+          "severity": {
+            "enum": [
+              "low",
+              "moderate",
+              "high"
+            ]
+          },
+          "next_owner": {
+            "type": "string",
+            "minLength": 1
+          },
+          "next_step": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "coverage_gaps": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "review_conditions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  }
+}
